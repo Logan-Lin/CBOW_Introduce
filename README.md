@@ -8,3 +8,8 @@
 
 - [来源](https://code.google.com/archive/p/word2vec/)
 - [英文](word2vec.md)
+
+3. [实现代码](codes/word2vec.py)
+
+- [来源](https://github.com/deborausujono/word2vecpy)
+- [用法](codes/readme.md)
