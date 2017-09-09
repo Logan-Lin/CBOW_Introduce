@@ -8,3 +8,4 @@
 
 - [来源](https://code.google.com/archive/p/word2vec/)
 - [中文](word2vec_Chinese.md)
+- [英文](word2vec.md)
