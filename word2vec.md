@@ -20,16 +20,16 @@ The **word2vec** tool takes a text corpus as input and produces the word vectors
 A simple way to investigate the learned representations is to find to closest words for a user-specified word. The **distance** tool serves that purpose. For example, if you enter 'france', **distance** will display the most similar words and their distances to 'france', which should look like:
 
 > ### Word Cosine distance
-> spain 0.678515
-> belgium 0.665923
-> netherlands 0.652428
-> italy 0.633130
-> switzerland 0.622323
-> luxembourg 0.610033
-> portugal 0.577154
-> russia 0.571507
-> germany 0.563291
-> catalonia 0.534176
+> spain 0.678515<br>
+> belgium 0.665923<br>
+> netherlands 0.652428<br>
+> italy 0.633130<br>
+> switzerland 0.622323<br>
+> luxembourg 0.610033<br>
+> portugal 0.577154<br>
+> russia 0.571507<br>
+> germany 0.563291<br>
+> catalonia 0.534176<br>
 
 There are two main learning algorithms in **word2vec**: continuous bag-of-words and continuous skip-gram. The switch **-cbow** allows the user to pick one of these learning algorithms. Both algorithms learn the reoresentation of a word that is useful for prediction of other words in the sentense. These algorithms are described in detail in `[1, 2]`.
 
@@ -44,16 +44,16 @@ To observe strong regularitites in the word vector space, it is need to train th
 In certain applications, it is useful to have vector representation of larger pieces of text. For example, it is desirable to have only one vector for representing 'san francisco'. This can be achieved by pre-processing the training data set to form the phrases using the **word2phrase** tool, as is shown in the example script `./demo-phrases.sh`. The example output with the closest takens to -san_francisco' looks like:
 
 > ### Word Cosine distance
-> los_angeles 0.666175
-> golden_gate 0.571522
-> oakland 0.557521
-> california 0.554623
-> san_diego 0.534939
-> pasadena 0.519115
-> seattle 0.512098
-> taiko 0.507570
-> houston 0.499762
-> chicago_illinois 0.491598
+> los_angeles 0.666175<br>
+> golden_gate 0.571522<br>
+> oakland 0.557521<br>
+> california 0.554623<br>
+> san_diego 0.534939<br>
+> pasadena 0.519115<br>
+> seattle 0.512098<br>
+> taiko 0.507570<br>
+> houston 0.499762<br>
+> chicago_illinois 0.491598<br>
 
 The linearity of the vector operations seems to weakly hold also for the addition of several vectors, so it is possible to add several word of phrase vectors to form representation of short sentences.
 
@@ -91,4 +91,4 @@ The training speed can be significantly improved by using parallel training on m
 
 - `[2]` Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. In Proceedings of NIPS, 2013.
 
-- `[3s]` Tomas Mikolov, Wen-tau Yih, and Geoffrey Zweig. Linguistic Regularities in Continuous Space Word Representations. In Proceedings of NAACL HLT, 2013.
+- `[3]` Tomas Mikolov, Wen-tau Yih, and Geoffrey Zweig. Linguistic Regularities in Continuous Space Word Representations. In Proceedings of NAACL HLT, 2013.
