@@ -1,4 +1,3 @@
-import gensim
 import keras.backend as K
 import numpy as np
 from keras.layers import Dense, Embedding, Lambda
@@ -69,7 +68,8 @@ cbow.add(Dense(V, activation='softmax'))
 cbow.compile(loss='categorical_crossentropy', optimizer='adadelta')
 plot_model(cbow, to_file="model.png", show_shapes=True)
 
-for ite in range(10):
+epochs = 50
+for ite in range(epochs):
     loss = 0.
     for x, y in generate_data(corpus, window_size, V):
         # train_on_batch: Single gradient update over one batch of samples.
@@ -87,15 +87,3 @@ for word, i in tokenizer.word_index.items():
     f.write(' '.join(map(str, list(vectors[i, :]))))
     f.write('\n')
 f.close()
-
-# gensim: This package contains interfaces and functionality to computer pair-wise document similarities within
-# a corpus of documents.
-# KeyedVectors: Class to contain vectors vocab for the Word2Vec training class and other w2v methods
-# not involved in training such as most_similar()
-# load_word2vec_format: Load the input-hidden wight matrix from the original C word2vec-tool format.
-w2v = gensim.models.KeyedVectors.load_word2vec_format('./vectors.txt', binary=False)
-# Find the top-N most similar words. Positive words contribute positively towards the similarity,
-# negative words negatively.
-# This method computes cosine similarity between a simple mean of the projection weight vectors of the given words
-# and the vectors for word-analogy and distance scripts in the original word2vec implementation.
-w2v.most_similar(positive=['alice'])
